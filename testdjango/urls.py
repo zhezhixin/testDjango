@@ -18,8 +18,12 @@ from django.urls import path
 
 from django.conf.urls import url
 from . import views
+from backend import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', views.hello),
+    url(r'my/api$', views.my_api, name='my_api'),
+    url(r'phoneLocation$', views.phoneLocation, name='phoneLocation'),
+    url(r'faceList$', views.faceList, name='faceList'),
 ]
