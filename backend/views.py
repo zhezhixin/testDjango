@@ -9,6 +9,7 @@ from django.views.decorators.csrf import  csrf_exempt
 def hello(request):
     return HttpResponse("Hello world ! ")
 
+#/my/api
 @csrf_exempt
 def my_api(request):
     dic = {}
@@ -43,6 +44,5 @@ def faceList(request):
     dic = {}
     d = {}
     dic['success'] = True
-    d['obj'] = ['20元', '30元', '50元']
-    dic['obj'] = d
+    dic['price'] = ['20元', '30元', '50元']
     return HttpResponse(json.dumps(dic,ensure_ascii=False))
