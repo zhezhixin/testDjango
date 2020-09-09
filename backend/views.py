@@ -26,14 +26,14 @@ def phoneLocation(request):
         dic = {}
         d = {}
         dic['success'] = True
-        d['proviec'] = '浙江'
+        d['province'] = '浙江'
         d['city'] = '宁波'
         dic['obj'] = d
     elif request.method == "POST":
         dic = {}
         d = {}
         dic['success'] = True
-        d['proviec'] = '浙江'
+        d['province'] = '浙江'
         d['city'] = '宁波'
         dic['obj'] = d
     return HttpResponse(json.dumps(dic,ensure_ascii=False))
