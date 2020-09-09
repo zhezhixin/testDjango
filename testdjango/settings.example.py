@@ -25,7 +25,7 @@ SECRET_KEY = ''
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'backend',
     'corsheaders', #解决跨域
+    'chat',
+    'channels', #websocket链接
 ]
 
 MIDDLEWARE = [
@@ -61,7 +63,7 @@ ROOT_URLCONF = 'testdjango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,7 +77,16 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'testdjango.wsgi.application'
+ASGI_APPLICATION = 'testdjango.routing.application'
 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
