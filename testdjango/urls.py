@@ -28,5 +28,5 @@ urlpatterns = [
     url(r'my/api$', views.my_api, name='my_api'),
     url(r'phoneLocation$', views.phoneLocation, name='phoneLocation'),
     url(r'faceList$', views.faceList, name='faceList'),
-    path('room/<str:room_name>/', room, name='room')
+    #path('room/<str:room_name>/', room, name='room')
 ]

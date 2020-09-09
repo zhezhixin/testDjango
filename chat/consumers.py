@@ -4,7 +4,7 @@ from channels.generic.websocket import WebsocketConsumer
 
 
 class ChatConsumer(WebsocketConsumer):
-
+  #self.scope类似于django中的request，包含了请求的type、path、header、cookie、session、user等等有用的信息
     def connect(self):
         # 建立 websocket连接 (进入指定url 会自动建立连接)
         self.room_name = self.scope['url_route']['kwargs']['room_name']
